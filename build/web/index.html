@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="/">
+
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="Motivator is a powerful app that helps you stay motivated and inspired every day. With a vast collection of handpicked motivational quotes from some of the world's greatest thinkers and achievers, Motivator is your go-to resource for daily inspiration and motivation.">
+    <meta name="title" content="Motivator">
+
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#3a3d4f">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#3a3d4f">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Motivator">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+
+    <title>Motivator</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        @-webkit-keyframes spinLoaderBorder {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg)
+            }
+            to {
+                -webkit-transform: rotate(1turn);
+                transform: rotate(1turn)
+            }
+        }
+        
+        @keyframes spinLoaderBorder {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg)
+            }
+            to {
+                -webkit-transform: rotate(1turn);
+                transform: rotate(1turn)
+            }
+        }
+        
+        .loaded #preloader {
+            display: none;
+        }
+        
+        #preloader {
+            position: fixed;
+            width: calc(100% + 25px);
+            left: -25px;
+            top: 0;
+            height: calc(100% + 25px);
+            z-index: 9999999;
+        }
+        
+        #preloader::after {
+            content: "";
+            opacity: 1;
+            border: 3px solid #ffffff;
+            border-top-style: solid;
+            border-top-width: 3px;
+            border-top: 3px solid #3a3d4f;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            -webkit-animation: spinLoaderBorder 1s linear infinite;
+            animation: spinLoaderBorder 1s linear infinite;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+        }
+        
+        .light #preloader::after {
+            border: 3px solid #3a3d4f;
+            border-top: 3px solid #ffffff;
+        }
+        
+        html,
+        body {
+            overflow-x: hidden;
+        }
+        
+        body {
+            background-color: #3a3d4f;
+        }
+        
+        .light #preloader {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let isLightMode = localStorage.getItem('flutter.PrefDarkMode') == 'false';
+        if (isLightMode) {
+            document.body.classList += " light";
+        }
+    </script>
+    <div id="preloader"></div>
+    <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('flutter-first-frame', function() {
+                navigator.serviceWorker.register('flutter_service_worker.js');
+            });
+        }
+    </script>
+    <script src="main.dart.js" type="application/javascript">
+    </script>
+    <script>
+        window.addEventListener("flutter-first-frame", function() {
+            document.body.classList += " loaded";
+        });
+    </script>
+</body>
+
+</html>
