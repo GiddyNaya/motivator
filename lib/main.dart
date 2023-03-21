@@ -12,7 +12,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'http/http_client.dart';
 import 'http/services/api_service.dart';
 import 'mixins/local_storage.dart';
-import 'utils/styles_util.dart';
 
 String currentRoute = Routes.landing;
 LocalStorage localStorage = LocalStorage();
@@ -36,13 +35,13 @@ Future<void> main() async {
 Future<void> initFirebase() async {
   await Firebase.initializeApp(
     options: const FirebaseOptions(
-        apiKey: "AIzaSyB2q6UN6_wTKZudlyvHUsyHoko1CGY5Qaw",
-        authDomain: "rockgarden-app.firebaseapp.com",
-        projectId: "rockgarden-app",
-        storageBucket: "rockgarden-app.appspot.com",
-        messagingSenderId: "503524621123",
-        appId: "1:503524621123:web:713b17d4c2f059c4978df6",
-        measurementId: "G-HD7V9J8NTN"),
+        apiKey: "AIzaSy********************Y5Qaw",
+        authDomain: "my-app.firebaseapp.com",
+        projectId: "my-app",
+        storageBucket: "my-app.appspot.com",
+        messagingSenderId: "1234567890",
+        appId: "1:1234567890:web:71***********4978df6",
+        measurementId: "G-HD7********"),
   );
 }
 
@@ -62,11 +61,9 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme)),
       theme: ThemeData.light().copyWith(
           textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme)),
-      // navigatorObservers: [FlutterSmartDialog.observer],
       builder: FlutterSmartDialog.init(),
       initialRoute: Routes.landing,
       getPages: Routes.pages.values.toList(),
-      // onGenerateRoute: Routes.generateRoute,
       transitionDuration: Duration(seconds: 0),
       unknownRoute: Routes.notFoundPage(),
     );

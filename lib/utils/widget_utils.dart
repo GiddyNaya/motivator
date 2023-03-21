@@ -3,7 +3,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:motivator/utils/styles_util.dart';
 import 'package:nb_utils/nb_utils.dart';
 import '../utils/constants_util.dart';
 

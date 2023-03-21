@@ -1,4 +1,6 @@
+import 'dart:html';
 import 'dart:math';
+import 'package:flutter/foundation.dart';
 import 'package:motivator/utils/widget_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -46,12 +48,10 @@ void clearOverlay(BuildContext context) {
 Future<void> showSideMenu(BuildContext context,
     {required String title,
     required Widget child,
-    // required double width,
     bool useScrollView = true,
     required double height,
     required ScrollController controller,
     String? tag}) async {
-  // DialogProxy.contextNavigator = getContext;
   void showDialog() {
     SmartDialog.show(
       backDismiss: false,
@@ -111,11 +111,9 @@ Future<void> hideLoading() async {
   } catch (_) {
     print(_);
   }
-  // await SmartDialog.dismiss();
 }
 
 Future<void> showLoading({String message = "Loading... Please wait."}) async {
-  // await SmartDialog.showLoading(msg: message);
   try {
     showGeneralDialog(
         // context: Get.context!,
@@ -129,8 +127,8 @@ Future<void> showLoading({String message = "Loading... Please wait."}) async {
   // await Smar
 }
 
-void copyToClipboard(String? text) {
-  Clipboard.setData(new ClipboardData(text: text)).then((_) {
+Future<void> copyToClipboard(String? text) async {
+  await Clipboard.setData(new ClipboardData(text: text)).then((_) {
     toastDark('Text copied to your clipboard');
   });
 }
@@ -145,10 +143,22 @@ Future<void> toggleBackgroundColor() async {
   if (localStorage.isDarkModeOn) {
     backgroundColor.value = bgColorDark;
   } else {
-    backgroundColor.value = Colors.white;
+    backgroundColor.value = bgColorLight;
   }
 }
 
 ThemeMode getThemeMode() {
   return localStorage.isDarkModeOn ? ThemeMode.dark : ThemeMode.light;
+}
+
+void requestFullscreen() {
+  if (kIsWeb) document.documentElement?.requestFullscreen();
+}
+
+void exitFullscreen() {
+  if (kIsWeb) document.exitFullscreen();
+}
+
+bool hasFullscreen() {
+  return kIsWeb && (document.fullscreenElement != null);
 }

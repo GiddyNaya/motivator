@@ -24,7 +24,7 @@ class ShareWidget extends StatelessWidget {
   List<ShareItemModel> menuItems = [
     ShareItemModel(ShareOption.copy, 'copy.png'),
     ShareItemModel(ShareOption.facebook, 'facebook.png'),
-    ShareItemModel(ShareOption.instagram, 'instagram.png'),
+    ShareItemModel(ShareOption.linkedin, 'linkedin.png'),
     ShareItemModel(ShareOption.twitter, 'twitter.png')
   ];
 
@@ -46,9 +46,9 @@ class ShareWidget extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           IconButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 _controller.hideMenu();
-                                _share(item.title);
+                                await _share(item.title);
                               },
                               padding: const EdgeInsets.all(0),
                               icon: Image.asset(
@@ -71,26 +71,26 @@ class ShareWidget extends StatelessWidget {
     );
   }
 
-  void _share(String title) {
+  Future<void> _share(String title) async {
     if (Platform.isIOS || Platform.isAndroid) {
       Share.share(data, subject: 'Share Quote');
       return;
     }
     switch (title) {
       case ShareOption.copy:
-        copyToClipboard(data);
+        await copyToClipboard(data);
         break;
       case ShareOption.twitter:
-        launchUrl(
+        await launchUrl(
             "https://twitter.com/intent/tweet?text=${Uri.encodeComponent(data)}&url=https%3A%2F%2F${Uri.base.origin}");
         break;
       case ShareOption.facebook:
-        launchUrl(
+        await launchUrl(
             "https://web.facebook.com/sharer/sharer.php?quote=${Uri.encodeComponent(data)}&url=https%3A%2F%2F${Uri.base.origin}");
         break;
-      case ShareOption.facebook:
-        launchUrl(
-            "https://web.facebook.com/sharer/sharer.php?quote=${Uri.encodeComponent(data)}&url=https%3A%2F%2F${Uri.base.origin}");
+      case ShareOption.linkedin:
+        await launchUrl(
+            "https://www.linkedin.com/sharing/share-offsite/?summary=${Uri.encodeComponent(data)}&url=https%3A%2F%2F${Uri.base.origin}");
         break;
       default:
     }

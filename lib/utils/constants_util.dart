@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 const primaryColor = Color(0xFF3c65ff);
 const secondaryColor = Color(0xFFffffff);
-const bgColorDark = Color(0x3a3d4f);
+const bgColorDark = Colors.black;
+const bgColorLight = Colors.black;
 const sideSubMenuColor = Color(0xFFeeeeff);
 const primarAccentColor = Color(0xFF1f74df);
 const sdSecondaryColorPink = Color(0xFFbf049f);
@@ -32,9 +33,7 @@ class PageTitle {
   static const appName = "Motivator";
 }
 
-// const FileStorageBaseUrl = 'https://rockgarden-api.herokuapp.com';
-const ApiBaseUrl = 'api.rockgardenehr.com';
-const ApiPort = 8080;
+const ApiBaseUrl = 'my-api.herokuapp.com';
 
 const ErrorInConnection = 'Error in connection';
 const NoInternetConnection = 'No internet connection';
@@ -55,6 +54,6 @@ class QuoteCategory {
 class ShareOption {
   static const copy = "Copy";
   static const facebook = "Facebook";
-  static const instagram = "Instagram";
+  static const linkedin = "Instagram";
   static const twitter = "Twitter";
 }

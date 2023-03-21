@@ -3,7 +3,6 @@ import 'package:motivator/utils/routes.dart';
 import 'package:motivator/utils/widget_utils.dart';
 import 'package:motivator/widgets/button.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart' as nb;
 
 class NotFoundScreen extends StatelessWidget {
