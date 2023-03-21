@@ -2,9 +2,9 @@
 
 A simple quotes app built in flutter for the web. This app sends push notifications to iOS users right from the web. You can use this project as a starting point to get familiarized with the newly introduced Push API beta feature on iOS 16.4.
 
-<a target="_blank" rel="noopener noreferrer" href="https://motivator-peach.vercel.app"><img src="md-images/mobile-light.jpg" alt="Light Version - Mobile" title="Light Version - Mobile" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://motivator-peach.vercel.app"><img src="md-images/mobile-light.jpg" alt="Light Version - Mobile" title="Light Version - Mobile" style="max-width:350px"></a>
 
-<a target="_blank" rel="noopener noreferrer" href="https://motivator-peach.vercel.app"><img src="md-images/mobile-dark.jpg" alt="Dark Version - Mobile" title="Dark Version - Mobile" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://motivator-peach.vercel.app"><img src="md-images/mobile-dark.jpg" alt="Dark Version - Mobile" title="Dark Version - Mobile" style="max-width:350px"></a>
 
 ## Getting Started
 
