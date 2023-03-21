@@ -28,11 +28,17 @@ class MainScreen extends StatelessWidget {
               child: Stack(
                 children: [
                   Image.asset(
-                    "assets/images/beams-home${backgroundColor.value == Colors.black ? '-dark' : ''}.jpg",
+                    "assets/images/beams-home-dark'.jpg",
                     width: size.width,
                     height: size.height,
                     fit: BoxFit.cover,
-                  ),
+                  ).visible(backgroundColor.value != Colors.white),
+                  Image.asset(
+                    "assets/images/beams-home.jpg",
+                    width: size.width,
+                    height: size.height,
+                    fit: BoxFit.cover,
+                  ).visible(backgroundColor.value == Colors.white),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
